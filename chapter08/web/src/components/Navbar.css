@@ -1,0 +1,12 @@
+.navbar {
+    margin: 10px 20px 10px 20px;
+}
+
+.btn-pos {
+    justify-content: flex-end;
+}
+
+.active {
+    background-color: antiquewhite;
+    cursor: pointer;
+}

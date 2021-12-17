@@ -1,0 +1,23 @@
+.new-recipe {
+    margin: 10px 20px 10px 20px;
+}
+
+.input-field {
+    margin-bottom: 10px;
+}
+
+.input-labl {
+    width: 100px;
+}
+
+.name-input {
+    width: 300px;
+    margin-left: 20px;
+}
+
+.input-textarea {
+    align-items: middle;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
