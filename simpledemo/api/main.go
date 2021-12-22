@@ -24,6 +24,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis"
 	handlers "github.com/mlabouardy/recipes-api/handlers"
+	"github.com/mlabouardy/recipes-api/middlewares"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
@@ -60,6 +61,8 @@ func main() {
 	// config.AllowOrigins == []string{"http://google.com", "http://facebook.com"}
 	// config.AllowAllOrigins = true
 	// router.Use(cors.New(config))
+
+	router.Use(middlewares.CORSMiddleware())
 
 	router.POST("/recipes", recipesHandler.NewRecipeHandler)
 	router.GET("/recipes", recipesHandler.ListRecipesHandler)
