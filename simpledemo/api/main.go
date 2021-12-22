@@ -21,7 +21,6 @@ import (
 	"log"
 	"os"
 
-	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis"
 	handlers "github.com/mlabouardy/recipes-api/handlers"
@@ -56,12 +55,12 @@ func init() {
 func main() {
 	router := gin.Default()
 
-	config := cors.DefaultConfig()
+	// config := cors.DefaultConfig()
 	// config.AllowOrigins = []string{"http://localhost:3000"}
 	// config.AllowOrigins == []string{"http://google.com", "http://facebook.com"}
-	config.AllowAllOrigins = true
+	// config.AllowAllOrigins = true
+	// router.Use(cors.New(config))
 
-	router.Use(cors.New(config))
 	router.POST("/recipes", recipesHandler.NewRecipeHandler)
 	router.GET("/recipes", recipesHandler.ListRecipesHandler)
 	router.PUT("/recipes/:id", recipesHandler.UpdateRecipeHandler)
