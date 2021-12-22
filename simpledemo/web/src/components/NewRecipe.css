@@ -1,0 +1,38 @@
+.new-recipe {
+    margin: 10px 20px 10px 20px;
+}
+
+.input-field {
+    margin-bottom: 10px;
+}
+
+.input-labl {
+    width: 100px;
+}
+
+.name-input {
+    width: 300px;
+    margin-left: 20px;
+}
+
+.name-input-sub {
+    width: 300px;
+    margin-left: 120px;
+}
+
+.input-textarea {
+    align-items: middle;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.icon-button {
+    margin-left: 10px !important;
+    height: 5px !important;
+    width: 5px !important;
+    color: #000000;
+    background-color: #deb887;
+    border-radius: 5px;
+    cursor: pointer;
+}
