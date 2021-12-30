@@ -1,0 +1,43 @@
+version: "3.9" 
+
+services:
+  api:
+    image: api
+    environment:
+      - MONGO_URI=mongodb://admin:password@mongodb:27017/test?authSource=admin&readPreference=primary&ssl=false
+      - MONGO_DATABASE=demo
+      - REDIS_URI=redis:6379
+    networks:
+      - api_network
+    external_links:
+      - mongodb
+      - redis
+    ports:
+      - 8080:8080
+
+  dashboard:
+    image: web
+    networks:
+      - api_network
+    ports:
+      - 3000:3000
+
+  redis:
+    image: redis
+    networks:
+      - api_network
+    ports:
+      - 6379:6379
+
+  mongodb:
+    image: mongo:4.4.3
+    networks:
+      - api_network
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+
+networks:
+  api_network:
