@@ -12,15 +12,12 @@ services:
     external_links:
       - mongodb
       - redis
-    ports:
-      - 8080:8080
+    scale: 5
 
   dashboard:
     image: web
     networks:
       - api_network
-    ports:
-      - 3000:3000
 
   redis:
     image: redis
@@ -38,6 +35,18 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=password
+
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - api
+      - dashboard
+    networks:
+      - api_network
 
 networks:
   api_network:
